@@ -13,7 +13,7 @@ Estas instrucciones le proporcionarán una copia del proyecto en funcionamiento 
 
 Qué cosas necesita para compilar y cargar el código y cómo instalarlas
 
-1. ESP TTGO OLED V1.1 (disponible en [CRCibernetica](https://www.crcibernetica.com/ttgo-esp32-with-lora-and-oled-display-us915/) 
+1. ESP TTGO OLED V1.1 (disponible en [CRCibernetica](https://www.crcibernetica.com/ttgo-esp32-with-lora-and-oled-display-us915/)) 
 
 2. Windows 10, Linux, MacOS con VSCode y Platformio instalado (mi versión VSCode: 1.68.1 (Universal))
 
@@ -31,7 +31,7 @@ Un paso a paso que le indica cómo poner en marcha un entorno de desarrollo/prod
 3. Agregue su información de red, endpoint, MQTT y servidor en user-variables.h
 4. El main.cpp contiene un objeto llamado Config con las variables sensor1 y sensor2 que se modificaran con el dato proveniente de algún LoRaNode_ESPTTGO en la función listeningLora() o process_sensors(), dependiendo de la naturaleza del proyecto.
 5. El listenerLora al recibir un paquete, cambiará a true la variable dataLoRa y ejecuta la función sendToDashboard(config) que envía el dato a su broker MQTT personalizado.
-6. Este proyecto utiliza el broker MQTT, cuyas funciones de conexión se encuentran en el iotcrv2-conector.h. Recomendamos tomar este archivo como inspiración para realizar la conexión, envío y recepción de parametros desde y hacía tu propio broker MQTT.
+6. Este proyecto utiliza el broker EMQX, cuyas funciones de conexión se encuentran en el iotcrv2-conector.h. Recomendamos tomar este archivo como inspiración para realizar la conexión, envío y recepción de parametros desde y hacía tu propio broker MQTT.
 
 
 ### Funcionamiento
@@ -43,6 +43,8 @@ Una vez que se completan las funciones del Loop, la variable dataLoRa vuelve a f
 Este proyecto emplea una red LoRa privada entre este LoRa Gateway y un LoRa Nodo, recibe el dato y lo envía por MQTT a todos los dispositivos suscritos al mismo tópico (actuadores, sensores, paginas web, backends).
 
 El envío por http no está implementado ya que recomendamos manejar las reglas de guardado en bases de datos desde un broker MQTT o en tu propio backend.
+
+### [Video Demostración](https://youtube.com/shorts/CW2P_thfWiE)
 
 
 ### Despliegue
@@ -57,7 +59,6 @@ Consulte las instrucciones en **Requisitos previos**
 
 ### Autores
 
-* **Por rosa**
 * [ISProjectsIoTCR (colaborador)](https://github.com/ISProjectsIoTCR)
 
 ### Licencia
